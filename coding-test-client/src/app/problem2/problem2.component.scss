@@ -1,0 +1,40 @@
+    .triangle-odd {
+        position: relative;
+        height: 0px;
+        width: 0px;
+        border-top: 150px solid transparent;
+        border-bottom: 150px solid #45597e;
+        border-left: 150px solid #45597e;
+        border-right: 150px solid transparent;
+    }
+
+    .text-odd {
+        color: white;
+        font-size: 60px;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: -100px;
+    }
+
+    .text-even {
+        color: white;
+        font-size: 60px;
+        margin: 0;
+        position: absolute;
+        right: -100px;
+        bottom: 50%;
+    }
+
+    .triangle-even {
+        position: relative;
+        height: 0px;
+        width: 0px;
+        border-top: 150px solid #45597e;
+        border-bottom: 150px solid transparent;
+        border-left: 150px solid transparent;
+        border-right: 150px solid #45597e;
+
+    }
+
+    

@@ -1,0 +1,14 @@
+<div>
+    <p>Enter vertex details:</p>
+    <p>A: (<input placeholder="x" type="number" min="0" /> <input placeholder="y" type="number" min="0" />)</p>
+    <p>B: (<input placeholder="x" type="number" min="0" /> <input placeholder="y" type="number" min="0" />)</p>
+    <p>C: (<input placeholder="x" type="number" min="0" /> <input placeholder="y" type="number" min="0" />)</p>
+    <button>Calculate</button>
+    <br />
+    <div *ngIf="!showEven" class="triangle-odd">
+        <p class="text-odd">{{textToShow}}</p>
+    </div>
+    <div *ngIf="showEven" class="triangle-even">
+        <p class="text-even">{{textToShow}}</p>
+    </div>
+</div>
