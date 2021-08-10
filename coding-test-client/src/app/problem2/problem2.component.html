@@ -1,9 +1,9 @@
-<div>
+<form [formGroup]="form" (ngSubmit)="calculateTriangle()" >
     <p>Enter vertex details:</p>
-    <p>A: (<input placeholder="x" type="number" min="0" /> <input placeholder="y" type="number" min="0" />)</p>
-    <p>B: (<input placeholder="x" type="number" min="0" /> <input placeholder="y" type="number" min="0" />)</p>
-    <p>C: (<input placeholder="x" type="number" min="0" /> <input placeholder="y" type="number" min="0" />)</p>
-    <button>Calculate</button>
+    <p>A: (<input formControlName="aX" placeholder="x" type="number" min="0" /> <input formControlName="aY" placeholder="y" type="number" min="0" />)</p>
+    <p>B: (<input formControlName="bX" placeholder="x" type="number" min="0" /> <input formControlName="bY" placeholder="y" type="number" min="0" />)</p>
+    <p>C: (<input formControlName="cX" placeholder="x" type="number" min="0" /> <input formControlName="cY" placeholder="y" type="number" min="0" />)</p>
+    <button type="submit" [disabled]="!form.valid">Calculate</button>
     <br />
     <div *ngIf="!showEven" class="triangle-odd">
         <p class="text-odd">{{textToShow}}</p>
@@ -11,4 +11,4 @@
     <div *ngIf="showEven" class="triangle-even">
         <p class="text-even">{{textToShow}}</p>
     </div>
-</div>
+</form>
