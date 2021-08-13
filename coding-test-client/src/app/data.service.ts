@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { TraingleRowColumns, TriangleVertices } from './interfaces/triangle.interface';
@@ -5,23 +6,16 @@ import { TraingleRowColumns, TriangleVertices } from './interfaces/triangle.inte
   providedIn: 'root'
 })
 export class DataService {
-
-  constructor() { }
+  private apiUrl: string = 'https://localhost:44332';
+  constructor(private http: HttpClient) { }
 
   getDataFromVertices(triangleVertices: TriangleVertices): Observable<TraingleRowColumns> {
+    const url = '/Shape/GetDataFromVertices';
     let response: TraingleRowColumns = {} as TraingleRowColumns;
-    response.row = "A";
-    response.column = 3 ;
-    return of(response);
+    return this.http.get<TraingleRowColumns>(this.apiUrl + url);
   }
   getDataFromRowColumn(rowColumnDetails: TraingleRowColumns): Observable<TriangleVertices> {
-    let response: TriangleVertices = {} as TriangleVertices;
-    response.aX = 0;
-    response.aY = 0;
-    response.bX = 0;
-    response.bY = 10;
-    response.cX = 10;
-    response.cY = 10;
-    return of(response);
+    const url = '/Shape/GetDataFromRowColumn';
+    return this.http.get<TriangleVertices>(this.apiUrl + url);
   }
 }
