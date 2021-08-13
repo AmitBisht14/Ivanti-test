@@ -1,13 +1,20 @@
-<form [formGroup]="form" (ngSubmit)="calculateTriangle()">
-    <p>Enter Triangle Details:</p>
-    <p>Row: (<input placeholder="Row" formControlName="row" type="text" min="0" /> <input placeholder="Column" formControlName="column" type="number" min="0" />)</p>
-    <button type="submit" [disabled]="!form.valid">Calculate</button>
-    <br />
-    <div>
-        <p>Triangle coordinate details are:</p>
-        <p>A: ({{coordinateA}})</p>
-        <p>B: ({{coordinateB}})</p>
-        <p>C: ({{coordinateC}})</p>
-
+<span>
+    <form [formGroup]="form" (ngSubmit)="calculateTriangle()">
+        <p>Enter Triangle Details:</p>
+        <p>Row: (<input placeholder="Row" formControlName="row" type="text" min="0" /> <input placeholder="Column" formControlName="column" type="number" min="0" />)</p>
+        <button type="submit" [disabled]="!form.valid">Calculate</button>
+        <br />
+        <div *ngIf="showResult">
+            <p>Triangle coordinate details are:</p>
+            <p>A: ({{coordinateA}})</p>
+            <p>B: ({{coordinateB}})</p>
+            <p>C: ({{coordinateC}})</p>
+        </div>
+        <div *ngIf="showError">
+            {{errorMessage}}
+        </div>
+    </form>
+    <div class="img-for-refernce">
+        <img src="../../assets/Coordinate-reference.png" />
     </div>
-</form>
+</span>

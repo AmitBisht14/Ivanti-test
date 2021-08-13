@@ -5,4 +5,18 @@
         width: 30px;
         margin: 0 5px;
     }
+
+    span {
+        display: block;
+        form {
+            float: left;
+        }
+        .img-for-refernce {
+            img {
+                float: right;
+                border: solid 1px;
+            }
+        }
+        
+    }
 }

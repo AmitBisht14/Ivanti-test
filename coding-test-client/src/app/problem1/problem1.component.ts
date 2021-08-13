@@ -12,7 +12,9 @@ export class Problem1Component implements OnInit {
   coordinateA: string;
   coordinateB: string;
   coordinateC: string;
-
+  showError = false;
+  showResult = false;
+  errorMessage: string;
   form = new FormGroup({
     "row": new FormControl("", Validators.required),
     "column": new FormControl("", Validators.required),
@@ -30,11 +32,17 @@ export class Problem1Component implements OnInit {
     traingleRowColumns.column = inputData.column;
 
     this.dataService.getDataFromRowColumn(traingleRowColumns).subscribe(s => {
+      this.showError = false;
+      this.showResult = true;
       this.coordinateA = s.aX + ', ' + s.aY;
       this.coordinateB = s.bX + ', ' + s.bY;
       this.coordinateC = s.cX + ', ' + s.cY;
     }, error => {
-      console.log('error');
+      this.showResult = false;
+      this.showError = true;
+      this.errorMessage = "Invalid input or incorrect data provided"
+      console.log(error);
+      
     });
   }
 }

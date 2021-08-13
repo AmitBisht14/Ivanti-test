@@ -12,7 +12,9 @@ export class Problem2Component implements OnInit {
 
   showEven = false;
   textToShow: string;
-
+  showError = false;
+  showResult = false;
+  errorMessage: string;
   form = new FormGroup({
     "aX": new FormControl("", Validators.required),
     "aY": new FormControl("", Validators.required),
@@ -38,10 +40,15 @@ export class Problem2Component implements OnInit {
     triangleVertices.cY = inputData.cY;
 
     this.dataService.getDataFromVertices(triangleVertices).subscribe(s => {
+      this.showError = false;
+      this.showResult = true;
       this.showEven = s.column > 1 && s.column % 2 === 0;
       this.textToShow = s.row + s.column;
     }, error => {
-      console.log('error');
+      this.showResult = false;
+      this.showError = true;
+      this.errorMessage = "Invalid input or incorrect data provided"
+      console.log(error);
     });
   }
 }

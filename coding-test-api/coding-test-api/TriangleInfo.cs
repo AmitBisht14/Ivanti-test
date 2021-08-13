@@ -52,7 +52,7 @@ namespace coding_test_api
         public TriangleVertices CalculateVertices(RowColumns rowColumns)
         {
             TriangleVertices triangleVertices = new TriangleVertices();
-            int rowIndex = liRows.FindIndex(f => f == rowColumns.Row);
+            int rowIndex = liRows.FindIndex(f => f.ToString().ToLower() == rowColumns.Row.ToString().ToLower());
             int colIndex = liColumns.FindIndex(f => f == rowColumns.Column);
             if ((rowColumns.Column > 0 && rowColumns.Column <= MAX_ROW * 2) && (colIndex > -1 && rowIndex > -1))
             {

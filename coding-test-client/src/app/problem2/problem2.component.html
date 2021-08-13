@@ -1,14 +1,24 @@
-<form [formGroup]="form" (ngSubmit)="calculateTriangle()" >
-    <p>Enter vertex details:</p>
-    <p>A: (<input formControlName="aX" placeholder="x" type="number" min="0" /> <input formControlName="aY" placeholder="y" type="number" min="0" />)</p>
-    <p>B: (<input formControlName="bX" placeholder="x" type="number" min="0" /> <input formControlName="bY" placeholder="y" type="number" min="0" />)</p>
-    <p>C: (<input formControlName="cX" placeholder="x" type="number" min="0" /> <input formControlName="cY" placeholder="y" type="number" min="0" />)</p>
-    <button type="submit" [disabled]="!form.valid">Calculate</button>
-    <br />
-    <div *ngIf="!showEven" class="triangle-odd">
-        <p class="text-odd">{{textToShow}}</p>
+<span>
+    <form [formGroup]="form" (ngSubmit)="calculateTriangle()" >
+        <p>Enter vertex details:</p>
+        <p>A: (<input formControlName="aX" placeholder="x" type="number" min="0" /> <input formControlName="aY" placeholder="y" type="number" min="0" />)</p>
+        <p>B: (<input formControlName="bX" placeholder="x" type="number" min="0" /> <input formControlName="bY" placeholder="y" type="number" min="0" />)</p>
+        <p>C: (<input formControlName="cX" placeholder="x" type="number" min="0" /> <input formControlName="cY" placeholder="y" type="number" min="0" />)</p>
+        <button type="submit" [disabled]="!form.valid">Calculate</button>
+        <br />
+        <div *ngIf="showResult">
+            <div *ngIf="!showEven" class="triangle-odd">
+                <p class="text-odd">{{textToShow}}</p>
+            </div>
+            <div *ngIf="showEven" class="triangle-even">
+                <p class="text-even">{{textToShow}}</p>
+            </div>
+        </div>
+        <div *ngIf="showError">
+            {{errorMessage}}
+        </div>
+    </form>
+    <div class="img-for-refernce">
+        <img src="../../assets/Coordinate-reference.png" />
     </div>
-    <div *ngIf="showEven" class="triangle-even">
-        <p class="text-even">{{textToShow}}</p>
-    </div>
-</form>
+</span>
